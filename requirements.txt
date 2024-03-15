@@ -2,3 +2,4 @@ Flask==3.0.2
 langchain==0.1.12
 langchain_openai==0.0.8
 youtube_transcript_api==0.6.2
+gunicorn==21.2.0
