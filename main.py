@@ -7,7 +7,8 @@ def index():
     summary = ""
     if request.method == 'POST':
         link = request.form.get('link')
-        summary = summarize(link)
+        pro_link = link.split('=')
+        summary = summarize(pro_link[-1])
     return render_template("index.html", summary=summary)
 
 if __name__ == "__main__":
