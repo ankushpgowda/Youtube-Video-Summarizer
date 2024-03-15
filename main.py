@@ -11,5 +11,5 @@ def index():
     return render_template("index.html", summary=summary)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8888)
+    app.run(debug=False)
     
