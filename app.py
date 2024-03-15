@@ -5,7 +5,6 @@ from langchain_openai import OpenAI
 import getpass
 import os
 
-os.environ["OPENAI_API_KEY"] = getpass.getpass("OpenAI API Key:")
 def summarize(link):
     complete_transcript = YouTubeTranscriptApi.get_transcript(link)
     transcript =""
