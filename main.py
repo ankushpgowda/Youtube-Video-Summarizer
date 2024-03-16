@@ -4,8 +4,11 @@ import re
 app = Flask(__name__)
 
 def get_video_id(link):
-    match = re.search(r"(?<=v=|v/|vi=|youtu\.be/|embed/)[^#\?]*", link)
-    return match.group(0) if match else None
+    if "youtu.be" in link:
+        return re.search(r"(?<=youtu\.be\/)[^#\?]*", link).group(0)
+    else:
+        match = re.search(r"(?:[?&]v=|\/embed\/)([^#\?]*)", link)
+        return match.group(1) if match else None
 
 @app.route("/", methods=['POST', 'GET'])
 def index():
@@ -17,5 +20,5 @@ def index():
     return render_template("index.html", summary=summary)
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True, port=8888)
     
